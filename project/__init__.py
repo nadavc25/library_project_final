@@ -2,11 +2,11 @@
 from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+# from flask_migrate import Migrate
 import os
 
 db = SQLAlchemy()
-migrate = Migrate()
+# migrate = Migrate()
 
 def create_app():
     app = Flask(__name__, static_folder='static', template_folder='templates')
@@ -24,7 +24,7 @@ def create_app():
     CORS(app)
 
     db.init_app(app)
-    migrate.init_app(app, db)
+    # migrate.init_app(app, db)
 
     from project.books.books import books_bp
     from project.customers.customers import customers_bp
